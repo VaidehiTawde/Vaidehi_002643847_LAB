@@ -4,25 +4,34 @@
  */
 package UI;
 
-import Model.Address;
-import Model.ContactInfo;
-import Model.DesignModel;
-import javax.swing.JOptionPane;
+import Model.DeliveryPackage;
 
 /**
  *
  * @author Lenovo
  */
-public class MainJframe extends javax.swing.JFrame {
+public class MainJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainJframe
+     * Creates new form MainJFrame
      */
-    private DesignModel designModel;
     
-    public MainJframe() {
+    private DeliveryPackage deliveryPackage;
+    public MainJFrame() {
         initComponents();
-        this.designModel= new DesignModel();
+        
+        this.deliveryPackage = new DeliveryPackage();
+        
+    }
+
+    
+
+   MainJFrame(DeliveryPackage delPackage) {
+ 
+        this.setVisible(true);
+        initComponents();
+        
+        this.deliveryPackage = delPackage;
     }
 
     /**
@@ -34,434 +43,65 @@ public class MainJframe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
-        labelNUID = new javax.swing.JLabel();
-        labelFirstName = new javax.swing.JLabel();
-        labelLastName = new javax.swing.JLabel();
-        labelCollegeName = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        labelPersonalPhone = new javax.swing.JLabel();
-        labelOfficePhone = new javax.swing.JLabel();
-        labelPersonalEmail = new javax.swing.JLabel();
-        labelOfficeEmail = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        labelSt1 = new javax.swing.JLabel();
-        labelApt1 = new javax.swing.JLabel();
-        labelCity1 = new javax.swing.JLabel();
-        labelZip1 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        labelSt2 = new javax.swing.JLabel();
-        labelApt2 = new javax.swing.JLabel();
-        labelCity2 = new javax.swing.JLabel();
-        lableZip2 = new javax.swing.JLabel();
-        fieldNUID = new javax.swing.JTextField();
-        fieldFirstName = new javax.swing.JTextField();
-        fieldLastName = new javax.swing.JTextField();
-        fieldCollegeName = new javax.swing.JTextField();
-        fieldPerPhone = new javax.swing.JTextField();
-        fieldOffPhone = new javax.swing.JTextField();
-        fieldPerEmail = new javax.swing.JTextField();
-        fieldOffEmail = new javax.swing.JTextField();
-        fieldSt1 = new javax.swing.JTextField();
-        fieldApt1 = new javax.swing.JTextField();
-        fieldCity1 = new javax.swing.JTextField();
-        fieldZip1 = new javax.swing.JTextField();
-        fieldSt2 = new javax.swing.JTextField();
-        fieldApt2 = new javax.swing.JTextField();
-        fieldCity2 = new javax.swing.JTextField();
-        fieldZip2 = new javax.swing.JTextField();
-        fieldbtn = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        displayNUID = new javax.swing.JLabel();
-        displayFirstName = new javax.swing.JLabel();
-        displayLastName = new javax.swing.JLabel();
-        displayCollegeName = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        displayPersonalPhone = new javax.swing.JLabel();
-        displayOfficePhone = new javax.swing.JLabel();
-        displayPersonalEmail = new javax.swing.JLabel();
-        displayOfficeEmail = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        displaySt1 = new javax.swing.JLabel();
-        displayApt1 = new javax.swing.JLabel();
-        displayCity1 = new javax.swing.JLabel();
-        displayZip1 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        displaySt2 = new javax.swing.JLabel();
-        displayApt2 = new javax.swing.JLabel();
-        displayCity2 = new javax.swing.JLabel();
-        displayZip2 = new javax.swing.JLabel();
-
-        jLabel2.setText("jLabel2");
+        ControlJPanel = new javax.swing.JPanel();
+        btnCreate = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDisplay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        ControlJPanel.setBackground(new java.awt.Color(255, 153, 255));
+        ControlJPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelNUID.setText("NU ID :");
-
-        labelFirstName.setText("First Name :");
-
-        labelLastName.setText("Last Name :");
-
-        labelCollegeName.setText("College Name :");
-
-        jLabel5.setText("***Contact Information***");
-
-        labelPersonalPhone.setText("Personal Phone :");
-
-        labelOfficePhone.setText("Office Phone :");
-
-        labelPersonalEmail.setText("Personal Email ID :");
-
-        labelOfficeEmail.setText("Office Email ID :");
-
-        jLabel10.setText("***Present Address***");
-
-        labelSt1.setText("Street Name :");
-
-        labelApt1.setText("Apartment number :");
-
-        labelCity1.setText("City/State :");
-
-        labelZip1.setText("Zipcode :");
-
-        jLabel15.setText("***Permanent Address***");
-
-        labelSt2.setText("Street Name :");
-
-        labelApt2.setText("Apartment number :");
-
-        labelCity2.setText("City/State :");
-
-        lableZip2.setText("Zipcode :");
-
-        fieldbtn.setText("Save");
-        fieldbtn.addActionListener(new java.awt.event.ActionListener() {
+        btnCreate.setText("CREATE");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldbtnActionPerformed(evt);
+                btnCreateActionPerformed(evt);
             }
         });
+        ControlJPanel.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 110, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelPersonalPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelOfficePhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldPerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldOffPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelPersonalEmail)
-                            .addComponent(labelOfficeEmail))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldOffEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldPerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelNUID)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldNUID, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(labelLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelFirstName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelCollegeName)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldCollegeName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelSt1)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldSt1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelApt1)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldApt1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelCity1)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldCity1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelZip1)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldZip1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel15)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelSt2)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldSt2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelCity2)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldCity2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lableZip2)
-                        .addGap(18, 18, 18)
-                        .addComponent(fieldZip2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(fieldbtn)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(labelApt2)
-                            .addGap(18, 18, 18)
-                            .addComponent(fieldApt2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNUID)
-                    .addComponent(fieldNUID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelFirstName)
-                    .addComponent(fieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelLastName)
-                    .addComponent(fieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCollegeName)
-                    .addComponent(fieldCollegeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPersonalPhone)
-                    .addComponent(labelPersonalEmail)
-                    .addComponent(fieldPerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fieldPerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelOfficePhone)
-                    .addComponent(labelOfficeEmail)
-                    .addComponent(fieldOffPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fieldOffEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSt1)
-                    .addComponent(fieldSt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelApt1)
-                    .addComponent(fieldApt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCity1)
-                    .addComponent(fieldCity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelZip1)
-                    .addComponent(fieldZip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSt2)
-                    .addComponent(fieldSt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelApt2)
-                    .addComponent(fieldApt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCity2)
-                    .addComponent(fieldCity2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lableZip2)
-                    .addComponent(fieldZip2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(fieldbtn)
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        ControlJPanel.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 110, 30));
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        btnDisplay.setText("DISPLAY");
+        btnDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisplayActionPerformed(evt);
+            }
+        });
+        ControlJPanel.add(btnDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 110, 30));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setLayout(null);
-
-        displayNUID.setText("NU ID :");
-        jPanel2.add(displayNUID);
-        displayNUID.setBounds(30, 20, 40, 16);
-
-        displayFirstName.setText("First Name :");
-        jPanel2.add(displayFirstName);
-        displayFirstName.setBounds(30, 60, 70, 16);
-
-        displayLastName.setText("Last Name :");
-        jPanel2.add(displayLastName);
-        displayLastName.setBounds(30, 100, 70, 20);
-
-        displayCollegeName.setText("College Name :");
-        jPanel2.add(displayCollegeName);
-        displayCollegeName.setBounds(30, 140, 90, 16);
-
-        jLabel7.setText("***Contact Information***");
-        jPanel2.add(jLabel7);
-        jLabel7.setBounds(30, 180, 140, 16);
-
-        displayPersonalPhone.setText("Personal Phone :");
-        jPanel2.add(displayPersonalPhone);
-        displayPersonalPhone.setBounds(30, 220, 90, 16);
-
-        displayOfficePhone.setText("Office Phone :");
-        jPanel2.add(displayOfficePhone);
-        displayOfficePhone.setBounds(30, 260, 80, 16);
-
-        displayPersonalEmail.setText("Personal Email ID :");
-        jPanel2.add(displayPersonalEmail);
-        displayPersonalEmail.setBounds(220, 220, 100, 20);
-
-        displayOfficeEmail.setText("Office Email ID :");
-        jPanel2.add(displayOfficeEmail);
-        displayOfficeEmail.setBounds(220, 260, 90, 16);
-
-        jLabel13.setText("***Present Address***");
-        jPanel2.add(jLabel13);
-        jLabel13.setBounds(30, 300, 120, 16);
-
-        displaySt1.setText("Street Name :");
-        jPanel2.add(displaySt1);
-        displaySt1.setBounds(30, 330, 80, 20);
-
-        displayApt1.setText("Apartment number :");
-        jPanel2.add(displayApt1);
-        displayApt1.setBounds(30, 370, 110, 16);
-
-        displayCity1.setText("City/State :");
-        jPanel2.add(displayCity1);
-        displayCity1.setBounds(30, 410, 60, 16);
-
-        displayZip1.setText("Zipcode :");
-        jPanel2.add(displayZip1);
-        displayZip1.setBounds(30, 450, 60, 16);
-
-        jLabel19.setText("***Permanent Address***");
-        jPanel2.add(jLabel19);
-        jLabel19.setBounds(30, 490, 140, 16);
-
-        displaySt2.setText("Street Name :");
-        jPanel2.add(displaySt2);
-        displaySt2.setBounds(30, 520, 80, 16);
-
-        displayApt2.setText("Apartment number :");
-        jPanel2.add(displayApt2);
-        displayApt2.setBounds(30, 560, 110, 16);
-
-        displayCity2.setText("City/State :");
-        jPanel2.add(displayCity2);
-        displayCity2.setBounds(30, 600, 60, 16);
-
-        displayZip2.setText("Zipcode :");
-        jPanel2.add(displayZip2);
-        displayZip2.setBounds(30, 640, 60, 16);
-
-        jSplitPane1.setRightComponent(jPanel2);
+        jSplitPane1.setLeftComponent(ControlJPanel);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldbtnActionPerformed
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new CreateJPanel(this.deliveryPackage));
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        System.out.println("UI.MainJFrame.btnUpdateActionPerformed()");
+        jSplitPane1.setRightComponent(new EditJPanel(this.deliveryPackage));
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayActionPerformed
         // TODO add your handling code here:
         
-        String nuID = fieldNUID.getText();
-        String firstName = fieldFirstName.getText();
-        String lastName = fieldLastName.getText();
-        String collegeName = fieldCollegeName.getText();
-        
-        this.designModel.setNuID(Long.parseLong(nuID));
-        this.designModel.setFirstName(firstName);
-        this.designModel.setLastName(lastName);
-        this.designModel.setCollegeName(collegeName);
-        
-        Address addr =this.designModel.getAddr();
-        ContactInfo cont =this.designModel.getCont();
-        
-        String preSt = fieldSt1.getText();
-        String preApt = fieldApt1.getText();
-        String preCity =fieldCity1.getText();
-        String preZip = fieldZip1.getText();
-        
-        addr.setPreSt(preSt);
-        addr.setPerApt(Integer.parseInt(preApt));
-        addr.setPreCity(preCity);
-        addr.setPreZip(Long.parseLong(preZip));
-        
-        String perSt = fieldSt2.getText();
-        String perApt = fieldApt2.getText();
-        String perCity =fieldCity2.getText();
-        String perZip = fieldZip2.getText();
-        
-        addr.setPerSt(perSt);
-        addr.setPerApt(Integer.parseInt(perApt));
-        addr.setPerCity(perCity);
-        addr.setPerZip(Long.parseLong(perZip));
-        
-        String personalPhone =fieldPerPhone.getText();
-        String personalEmailid =fieldPerEmail.getText();
-        
-        cont.setPersonalPhone(Long.parseLong(personalPhone));
-        cont.setPersonalEmailid(personalEmailid);
-        
-        String officePhone =fieldOffPhone.getText();
-        String officeEmailid =fieldOffEmail.getText();
-        
-        cont.setOfficePhone(Long.parseLong(officePhone));
-        cont.setOfficeEmailid(officeEmailid);
-        
-        JOptionPane.showMessageDialog(null, "Saved Successfully");
-        
-        display();
-    }//GEN-LAST:event_fieldbtnActionPerformed
+        jSplitPane1.setRightComponent(new ViewJPanel(this.deliveryPackage));
+    }//GEN-LAST:event_btnDisplayActionPerformed
 
-    private void display(){
-        
-        displayNUID.setText(String.valueOf(this.designModel.getNuID()));
-        displayFirstName.setText(this.designModel.getFirstName());
-        displayLastName.setText(this.designModel.getLastName());
-        displayCollegeName.setText(this.designModel.getCollegeName());
-        
-        displayPersonalPhone.setText(String.valueOf(this.designModel.getCont().getPersonalPhone()));
-        displayOfficePhone.setText(String.valueOf(this.designModel.getCont().getOfficePhone()));
-        displayPersonalEmail.setText(String.valueOf(this.designModel.getCont().getPersonalEmailid()));
-        displayOfficeEmail.setText(String.valueOf(this.designModel.getCont().getOfficeEmailid()));
-        
-        displaySt1.setText(this.designModel.getAddr().getPreSt());
-        displayCity1.setText(this.designModel.getAddr().getPreCity());
-        displayApt1.setText(String.valueOf(this.designModel.getAddr().getPreApt()));
-        displayZip1.setText(String.valueOf(this.designModel.getAddr().getPreZip()));
-        
-        displaySt2.setText(this.designModel.getAddr().getPerSt());
-        displayCity2.setText(this.designModel.getAddr().getPerCity());
-        displayApt2.setText(String.valueOf(this.designModel.getAddr().getPerApt()));
-        displayZip2.setText(String.valueOf(this.designModel.getAddr().getPerZip()));
-        
-    
-    }
     /**
      * @param args the command line arguments
      */
@@ -479,83 +119,29 @@ public class MainJframe extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainJframe().setVisible(true);
+                new MainJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel displayApt1;
-    private javax.swing.JLabel displayApt2;
-    private javax.swing.JLabel displayCity1;
-    private javax.swing.JLabel displayCity2;
-    private javax.swing.JLabel displayCollegeName;
-    private javax.swing.JLabel displayFirstName;
-    private javax.swing.JLabel displayLastName;
-    private javax.swing.JLabel displayNUID;
-    private javax.swing.JLabel displayOfficeEmail;
-    private javax.swing.JLabel displayOfficePhone;
-    private javax.swing.JLabel displayPersonalEmail;
-    private javax.swing.JLabel displayPersonalPhone;
-    private javax.swing.JLabel displaySt1;
-    private javax.swing.JLabel displaySt2;
-    private javax.swing.JLabel displayZip1;
-    private javax.swing.JLabel displayZip2;
-    private javax.swing.JTextField fieldApt1;
-    private javax.swing.JTextField fieldApt2;
-    private javax.swing.JTextField fieldCity1;
-    private javax.swing.JTextField fieldCity2;
-    private javax.swing.JTextField fieldCollegeName;
-    private javax.swing.JTextField fieldFirstName;
-    private javax.swing.JTextField fieldLastName;
-    private javax.swing.JTextField fieldNUID;
-    private javax.swing.JTextField fieldOffEmail;
-    private javax.swing.JTextField fieldOffPhone;
-    private javax.swing.JTextField fieldPerEmail;
-    private javax.swing.JTextField fieldPerPhone;
-    private javax.swing.JTextField fieldSt1;
-    private javax.swing.JTextField fieldSt2;
-    private javax.swing.JTextField fieldZip1;
-    private javax.swing.JTextField fieldZip2;
-    private javax.swing.JButton fieldbtn;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel ControlJPanel;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDisplay;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel labelApt1;
-    private javax.swing.JLabel labelApt2;
-    private javax.swing.JLabel labelCity1;
-    private javax.swing.JLabel labelCity2;
-    private javax.swing.JLabel labelCollegeName;
-    private javax.swing.JLabel labelFirstName;
-    private javax.swing.JLabel labelLastName;
-    private javax.swing.JLabel labelNUID;
-    private javax.swing.JLabel labelOfficeEmail;
-    private javax.swing.JLabel labelOfficePhone;
-    private javax.swing.JLabel labelPersonalEmail;
-    private javax.swing.JLabel labelPersonalPhone;
-    private javax.swing.JLabel labelSt1;
-    private javax.swing.JLabel labelSt2;
-    private javax.swing.JLabel labelZip1;
-    private javax.swing.JLabel lableZip2;
     // End of variables declaration//GEN-END:variables
 }
